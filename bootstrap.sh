@@ -22,7 +22,7 @@ apt-get install -y build-essential fpc postgresql postgresql-client \
 
 ./setup.py build
 ./setup.py install
-usermod -a -G cmsuser vagrant
+usermod -a -G cmsuser `whoami`
 echo "Databases"
 cat << EOF | su - postgres -c psql
 CREATE USER $DB_USER WITH PASSWORD '$DB_PASS';
